@@ -7,10 +7,8 @@ import {
   AngularFirestoreCollection
 } from "angularfire2/firestore";
 
-@Injectable({
-  providedIn: 'root'
-})
-export class AppService {
+@Injectable()
+export class TaskService {
 
   tasks: AngularFirestoreCollection<Task>;
 
@@ -45,5 +43,5 @@ export class AppService {
       this.taskDoc.delete();
     } // deleteTask
 
-    
+
 }
