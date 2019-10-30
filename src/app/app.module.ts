@@ -15,8 +15,3 @@ import { AppComponent } from './app.component';
 })
 export class AppModule { }
 
-export interface Task {
-  id: string;
-
-  description: string;
-}
