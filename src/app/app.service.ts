@@ -7,6 +7,7 @@ import {
   AngularFirestoreCollection
 } from "angularfire2/firestore";
 
+
 @Injectable()
 export class TaskService {
 

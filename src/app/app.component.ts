@@ -1,7 +1,8 @@
 import { TaskService } from "./app.service";
 import { config } from "./app.config";
 import { Component, OnInit } from "@angular/core";
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 
 import { Task } from "./app.model";
 import { AngularFirestore } from "angularfire2/firestore";
@@ -27,7 +28,7 @@ export class AppComponent implements OnInit {
     this.tasks = this.db
       .collection(config.collection_endpoint)
       .snapshotChanges()
-      .map(actions => {
+      .pipe(map(actions => {
         return actions.map(a => {
           //Get document data
           const data = a.payload.doc.data() as Task;
@@ -38,7 +39,7 @@ export class AppComponent implements OnInit {
           //Use spread operator to add the id to the document data
           return { id, ...data };
         });
-      });
+      }));
 
     console.log(this.tasks);
   }
