@@ -14,3 +14,9 @@ import { AppComponent } from './app.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export interface Task {
+  id: string;
+
+  description: string;
+}
